@@ -1,0 +1,11 @@
+<h2 style="color: white; margin-bottom: 16px;">Edit Description</h2>
+
+<mat-form-field appearance="fill" style="width: 100%;">
+  <mat-label>Description</mat-label>
+  <input matInput [(ngModel)]="data.description" />
+</mat-form-field>
+
+<div style="text-align: right; margin-top: 16px;">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!data.description.trim()">Save</button>
+</div>

@@ -1,0 +1,142 @@
+/* Apply full-page background from the component */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Optional ambient glow overlay */
+:host::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.04), transparent 60%);
+  z-index: 0;
+}
+
+/* Card container */
+.card-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 24px;
+}
+
+/* Individual card */
+.card {
+  width: 300px;
+  background: linear-gradient(to top right, #1e1e2f, #2b2b3c);
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: #f8f8f8;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+mat-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffd369;
+  margin-bottom: 12px;
+}
+
+mat-card-content {
+  font-size: 15px;
+  color: #f8f8f8;
+  min-height: 70px;
+}
+
+/* Actions inside card */
+mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+button[mat-raised-button] {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[mat-raised-button]:hover {
+  transform: scale(1.05);
+}
+
+/* Add Floating Action Button */
+.add-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  box-shadow: 0 8px 24px rgba(255, 65, 108, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.add-btn:hover {
+  transform: scale(1.15);
+}
+
+.add-btn mat-icon {
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+
+  .card-container {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.top-add-btn {
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 114, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.top-add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.4);
+}
+
+.top-add-btn mat-icon {
+  margin-right: 8px;
+}
